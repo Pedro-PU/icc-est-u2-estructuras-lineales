@@ -1,5 +1,6 @@
 import Controllers.*;
 import Models.*;
+
 public class App {
     public static void main(String[] args) throws Exception {
         Stack stack = new Stack();
@@ -45,5 +46,22 @@ public class App {
         System.out.println("Atiene a la persona => " + colaPersonas.remove().getNombre());
         System.out.println(colaPersonas.size());
         colaPersonas.printCola();
+
+        System.out.println("-".repeat(50));
+
+        Persona encontrada = colaPersonas.findByName("Juan");
+        if (encontrada != null) {
+            System.out.println("Persona encontrada: " + encontrada.getNombre());
+        } else {
+            System.out.println("No se encontró");
+        }
+
+        Persona personaEliminada = colaPersonas.removeByName("Juan");
+        if (personaEliminada != null) {
+            System.out.println("Se eliminó a: " + personaEliminada.getNombre());
+        } else {
+            System.out.println("No se pudo eliminar porque no se encontró");
+        }
+        
     }
 }
